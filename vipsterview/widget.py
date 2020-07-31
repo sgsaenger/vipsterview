@@ -23,6 +23,9 @@ class vpWidget(DOMWidget):
     _view_name = Unicode('VipsterView').tag(sync=True)
     _view_module = Unicode('vipster_draw').tag(sync=True)
     _view_module_version = Unicode('0.0.1').tag(sync=True)
+    _json_config = vp.Presets[vp.Plugins.json]['default']
+    _json_config['cell'] = True
+    _json_config['bonds'] = True
 
     mol = Any((vp.Molecule(), 0), help="The rendered step", allow_none=False)\
         .tag(sync=True,
@@ -31,7 +34,9 @@ class vpWidget(DOMWidget):
                  '{{"step": "{}", "idx": {}, "len": {}}}'.format(
                      re.sub('"', '\\"',
                             vp.writeString(vp.Plugins.json,
-                                           value[0], value[1])),
+                                           molecule=value[0],
+                                           index=value[1],
+                                           config=vpWidget._json_config)),
                      value[1], len(value[0])))
 
     @validate('mol')

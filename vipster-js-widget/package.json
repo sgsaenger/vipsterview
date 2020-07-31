@@ -1,0 +1,33 @@
+{
+    "name": "vipster-js-widget",
+    "version": "0.1.0",
+    "description": "Jupyter widget for Vipster",
+    "author": "Sebastian Gsänger",
+    "license": "GPL-3.0-only",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sgsaenger/vipster"
+    },
+    "bugs": "https://github.com/sgsaenger/vipster/issues",
+    "homepage": "https://sgsaenger.github.io/vipster",
+    "keywords": [
+        "chemistry",
+        "molecular graphics",
+        "molecular structure",
+        "visualization",
+        "jupyter",
+        "jupyterlab",
+        "jupyterlab-extension",
+        "ipython",
+        "ipywidgets"
+    ],
+    "scripts": {
+        "prepare": "cp extension.js node_modules/vipster/dist/vipster.{js,wasm} ../vipsterview/static"
+    },
+    "dependencies": {
+        "vipster": ">=1.19.0"
+    },
+    "jupyterlab": {
+        "extension": true
+    }
+}
