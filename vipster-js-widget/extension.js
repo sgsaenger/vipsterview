@@ -3,6 +3,14 @@ define("vipster_draw", ["@jupyter-widgets/base", "nbextensions/vipster-js-widget
     var count = 0;
     var VipsterView = widgets.DOMWidgetView.extend({
         render: function() {
+            if(Module.Molecule === undefined){
+                setTimeout(this.render.bind(this), 500);
+            }else{
+                this.render_actual();
+            }
+        },
+
+        render_actual: function() {
             // containing div
             this.container = document.createElement("div");
             this.container.style.width = "500px";
@@ -15,7 +23,6 @@ define("vipster_draw", ["@jupyter-widgets/base", "nbextensions/vipster-js-widget
             // canvas
             this.canvas = document.createElement("canvas");
             this.canvas.id = "canvas" + ++count;
-            this.canvas.oncontextmenu = () => false;
             this.container.appendChild(this.canvas);
             // step slider
             this.slide = document.createElement("input")
