@@ -35,16 +35,18 @@ pip install .
 To use the widgets in `jupyter notebook` (that is, the classical notebook interface),
 install the nbextension:
 
-```
-jupyter nbextension install vipster-jupyter --py
+```bash
+jupyter nbextension enable vipsterview --py
 ```
 
 ### JupyterLab extension (if needed)
 
 For the `jupyter lab` interface, a separate extension needs to be installed:
-```
+
+```bash
 jupyter labextension install vipster-js-widget
 ```
+
 **Note**:
 As long as this is in alpha and not published to NPM, execute this command in the checked out git folder.
 
