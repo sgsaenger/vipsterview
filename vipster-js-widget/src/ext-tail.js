@@ -1,0 +1,2 @@
+return { VipsterView: VipsterView }
+})

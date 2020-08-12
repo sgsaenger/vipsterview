@@ -2,6 +2,7 @@
 
 from setuptools import setup
 
+
 setup(name="vipsterview",
       version=0.1,
       author="Sebastian Gsänger",
@@ -25,8 +26,7 @@ setup(name="vipsterview",
       ],
       data_files=[('share/jupyter/nbextensions/vipster-js-widget', [
           'vipsterview/static/extension.js',
-          'vipsterview/static/vipster.js',
-          'vipsterview/static/vipster.wasm'
+          'vipsterview/static/vipster.js'
       ])],
       install_requires=['vipster>=1.19'],
       packages=['vipsterview'],

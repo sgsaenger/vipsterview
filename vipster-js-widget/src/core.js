@@ -1,6 +1,3 @@
-define("vipster-js-widget", ["@jupyter-widgets/base", "nbextensions/vipster-js-widget/vipster"], function(widgets) {
-
-Module().then(function(m){Module = m;})
 var VipsterView = widgets.DOMWidgetView.extend({
     render: function() {
         if(Module.Molecule === undefined){
@@ -102,5 +99,3 @@ var VipsterView = widgets.DOMWidgetView.extend({
 
 var count = 0;
 
-return { VipsterView: VipsterView }
-})
