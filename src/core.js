@@ -2,7 +2,7 @@ var VipsterView = widgets.DOMWidgetView.extend({
     render: function() {
         if(Module.Molecule === undefined){
             setTimeout(this.render.bind(this), 500);
-        }else{
+        }else {
             this.render_actual();
         }
     },
@@ -22,7 +22,7 @@ var VipsterView = widgets.DOMWidgetView.extend({
         this.canvas.id = "canvas" + ++count;
         this.container.appendChild(this.canvas);
         // step slider
-        this.slide = document.createElement("input")
+        this.slide = document.createElement("input");
         this.slide.type = "range";
         this.slide.step = 1;
         this.slide.min = 0;
@@ -40,7 +40,7 @@ var VipsterView = widgets.DOMWidgetView.extend({
                 let slide = container.children[1];
                 canvas.style.width = container.clientWidth+"px";
                 canvas.style.height = container.clientHeight+"px";
-            })
+            });
         });
         this.ro.observe(this.container);
         // register state handler
@@ -52,7 +52,7 @@ var VipsterView = widgets.DOMWidgetView.extend({
         this.slide.value = this.state.idx;
         if(this.state.len <= 1){
             this.slide.style.display = "none";
-        }else{
+        }else {
             this.slide.style.display = "block";
         }
         // create and setup view
@@ -85,7 +85,7 @@ var VipsterView = widgets.DOMWidgetView.extend({
             this.slide.max = this.state.len-1;
             if(this.state.len <= 1){
                 this.slide.style.display = "none";
-            }else{
+            }else {
                 this.slide.style.display = "block";
             }
         }
