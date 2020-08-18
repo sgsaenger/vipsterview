@@ -22,19 +22,18 @@
         "ipywidgets"
     ],
     "scripts": {
-        "prepare": "npm run build:lab && cp node_modules/vipster/dist/vipster.js .",
         "build": "npm run build:nb && npm run build:lab",
-        "build:nb": "cat src/ext-head.js src/core.js src/ext-tail.js > extension.js",
-        "build:lab": "head -c -1 src/lab-head.js | cat - src/core.js > index.js",
-        "update": "npm install && npm run build:nb && cp extension.js node_modules/vipster/dist/vipster.js ../vipsterview/static"
+        "build:nb": "cat src/ext-head.js src/core.js src/ext-tail.js > vipsterview/static/extension.js",
+        "build:lab": "mkdir -p dist && cat src/lab-head.js src/core.js src/lab-tail.js > dist/index.js && cp src/lab-plugin.js dist",
+        "update": "npm install && npm run build:nb && cp node_modules/vipster/dist/vipster.js vipsterview/static",
+        "clean": "rm -rf dist"
     },
-    "devDependencies": {
+    "dependencies": {
         "vipster": ">=1.19.0"
     },
-    "main": "index.js",
+    "main": "dist/index.js",
     "files": [
-        "vipster.js",
-        "lab-plugin.js"
+        "dist/lab-plugin.js"
     ],
     "jupyterlab": {
         "extension": "lab-plugin"

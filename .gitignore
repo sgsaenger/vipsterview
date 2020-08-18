@@ -14,12 +14,7 @@ package-lock.json
 *.tgz
 yarn.lock
 
-# compiled/installed js files
-vipster-js-widget/index.js
-vipster-js-widget/extension.js
-vipster-js-widget/vipster.js
-
-# python dist-stuff
+# dist-stuff
 build/
 dist/
 *.egg-info

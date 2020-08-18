@@ -12,7 +12,7 @@ Open a python-based notebook and try the following code
 
 ```python
 import vipster as vp # load regular vipster bindings
-from vipster-jupyter import vpWidget # widget for visualization
+from vipsterview import vpWidget # widget for visualization
 mol = vp.Molecule(*args) # create a Molecule instance
 view = vpWidget(mol=mol) # create a Widget instance displaying `mol`
 view # trigger display
@@ -24,7 +24,7 @@ view # trigger display
 Use one of these two commands to install the python part:
 ```bash
 # recommended as soon as published to PyPI
-pip install vipster-jupyter
+pip install vipsterview
 # for development versions or as long as it is in alpha-stage
 git clone https://github.com/sgsaenger/vipsterview
 cd vipsterview
