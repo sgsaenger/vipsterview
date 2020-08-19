@@ -1,6 +1,14 @@
-var VipsterView = widgets.DOMWidgetView.extend({
+import { DOMWidgetView } from '@jupyter-widgets/base';
+import Module from 'vipster';
+
+// load emscripten module
+var Vipster = {};
+Module().then(function(m){Vipster = m;});
+
+var VipsterView = DOMWidgetView.extend({
     render: function() {
-        if(Module.Molecule === undefined){
+        // wait until emscripten runtime is ready
+        if(Vipster.Molecule === undefined){
             setTimeout(this.render.bind(this), 500);
         }else {
             this.render_actual();
@@ -47,7 +55,7 @@ var VipsterView = widgets.DOMWidgetView.extend({
         this.model.on("change:mol", this.mol_changed, this);
         // initialize with current molecule
         this.state = JSON.parse(this.model.get("mol"));
-        this.mol = new Module.Molecule(this.state.step);
+        this.mol = new Vipster.Molecule(this.state.step);
         this.slide.max = this.state.len-1;
         this.slide.value = this.state.idx;
         if(this.state.len <= 1){
@@ -57,7 +65,7 @@ var VipsterView = widgets.DOMWidgetView.extend({
         }
         // create and setup view
         window.requestAnimationFrame(()=>{
-            this.view = new Module.VipsterView("#"+this.canvas.id);
+            this.view = new Vipster.VipsterView("#"+this.canvas.id);
             if(!this.mol.getStep(0).hasBonds()){
                 this.mol.getStep(0).setBonds();
             }
@@ -75,7 +83,7 @@ var VipsterView = widgets.DOMWidgetView.extend({
         if ("step" in tmp) {
             this.state.step = tmp.step;
             this.mol.delete();
-            this.mol = new Module.Molecule(this.state.step);
+            this.mol = new Vipster.Molecule(this.state.step);
             if(!this.mol.getStep(0).hasBonds()){
                 this.mol.getStep(0).setBonds();
             }
@@ -99,3 +107,4 @@ var VipsterView = widgets.DOMWidgetView.extend({
 
 var count = 0;
 
+export { VipsterView };

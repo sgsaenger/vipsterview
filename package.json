@@ -1,6 +1,6 @@
 {
     "name": "vipster-js-widget",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Jupyter widget for Vipster",
     "author": "Sebastian Gsänger",
     "license": "GPL-3.0-only",
@@ -22,17 +22,14 @@
         "ipywidgets"
     ],
     "scripts": {
-        "build": "npm run build:nb && npm run build:lab",
-        "build:nb": "cat src/ext-head.js src/core.js src/ext-tail.js > vipsterview/static/extension.js",
-        "build:lab": "mkdir -p dist && cat src/lab-head.js src/core.js src/lab-tail.js | node_modules/rollup/dist/bin/rollup --format=umd --name=vipster - > dist/index.js && cp src/lab-plugin.js dist",
-        "update": "npm install && npm run build:nb && cp node_modules/vipster/dist/vipster.js vipsterview/static",
+        "build": "npm install && rollup -c && cp src/lab-plugin.js dist",
+        "update": "npm run build && cp dist/index.js vipsterview/static/extension.js",
         "clean": "rm -rf dist"
     },
     "devDependencies": {
-        "rollup": "^2.26.3"
-    },
-    "dependencies": {
-        "vipster": ">=1.19.0"
+        "rollup": "^2.26.3",
+        "@rollup/plugin-node-resolve": "^9.0.0",
+        "vipster": ">=1.19.1"
     },
     "main": "dist/index.js",
     "files": [
