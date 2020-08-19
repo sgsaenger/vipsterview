@@ -1,8 +1,5 @@
 # Jupyter widget for Vipster
 
-**NOTE: Alpha-release**
-Please ensure you are using the latest `testing` branch of vipster to be compatible with this project.
-
 A [Jupyter](http://jupyter.org) widget to interactively visualize molecular structures loaded by [Vipster](https://github.com/sgsaenger/vipster).
 Currently supports the python bindings via IPython.
 
@@ -21,34 +18,31 @@ view # trigger display
 ## Installation
 
 ### Python library (necessary)
-Use one of these two commands to install the python part:
+This is not published on PyPI, so please install from git:
 ```bash
-# recommended as soon as published to PyPI
-pip install vipsterview
-# for development versions or as long as it is in alpha-stage
+# direct install:
+pip install git+https://github.com/sgsaenger/vipsterview
+# from local repo:
 git clone https://github.com/sgsaenger/vipsterview
 cd vipsterview
 pip install .
 ```
 
-### Jupyter Notebook extension (if needed)
+### Jupyter Notebook extension
 To use the widgets in `jupyter notebook` (that is, the classical notebook interface),
-install the nbextension:
+install the python library and then activate the nbextension:
 
 ```bash
 jupyter nbextension enable vipsterview --py
 ```
 
-### JupyterLab extension (if needed)
+### JupyterLab extension
 
 For the `jupyter lab` interface, a separate extension needs to be installed:
 
 ```bash
 jupyter labextension install vipster-js-widget
 ```
-
-**Note**:
-As long as this is in alpha and not published to NPM, execute this command in the checked out git folder.
 
 **Note**:
 It may be necessary to execute this with `sudo`, depending on how you installed JupyterLab.
