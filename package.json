@@ -1,6 +1,6 @@
 {
     "name": "vipster-js-widget",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Jupyter widget for Vipster",
     "author": "Sebastian Gsänger",
     "license": "GPL-3.0-only",
@@ -29,7 +29,7 @@
     "devDependencies": {
         "rollup": "^2.26.3",
         "@rollup/plugin-node-resolve": "^9.0.0",
-        "vipster": ">=1.19.1"
+        "vipster": "1.19.2"
     },
     "main": "dist/index.js",
     "files": [
