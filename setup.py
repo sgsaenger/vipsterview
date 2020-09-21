@@ -4,7 +4,7 @@ from setuptools import setup
 
 
 setup(name="vipsterview",
-      version="0.1.3",
+      version="0.1.4",
       author="Sebastian Gsänger",
       url="https://github.com/sgsaenger/vipsterview",
       description="Jupyter integration for Vipster",

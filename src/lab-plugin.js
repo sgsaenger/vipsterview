@@ -7,7 +7,7 @@ module.exports = {
     activate: function(app, widgets){
         widgets.registerWidget({
             name: 'vipster-js-widget',
-            version: '0.1.1',
+            version: '0.1.4',
             exports: {'VipsterView': vp_widget.VipsterView}
         });
     },

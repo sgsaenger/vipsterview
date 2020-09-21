@@ -1,6 +1,6 @@
 {
     "name": "vipster-js-widget",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "Jupyter widget for Vipster",
     "author": "Sebastian Gsänger",
     "license": "GPL-3.0-only",
