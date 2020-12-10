@@ -22,7 +22,7 @@ def mol_from_json(val, widget):
 class vpWidget(DOMWidget):
     _view_name = Unicode('VipsterView').tag(sync=True)
     _view_module = Unicode('vipster-js-widget').tag(sync=True)
-    _view_module_version = Unicode('0.1.4').tag(sync=True)
+    _view_module_version = Unicode('0.1.5').tag(sync=True)
     _json_config = vp.Presets[vp.Plugins.json]['default']
     _json_config['trajectory'] = False
     _json_config['cell'] = True

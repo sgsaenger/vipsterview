@@ -18,3 +18,4 @@ yarn.lock
 build/
 dist/
 *.egg-info
+*/__pycache__
